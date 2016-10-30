@@ -311,7 +311,7 @@ class DNSService(service.MultiService):
         return self.factory.zones()
 
     def startService(self):
-        udpservice = internet.UDPServer(self.port, self.protocol, interface="127.0.0.1")
+        udpservice = internet.UDPServer(self.port, self.protocol, interface="0.0.0.0")
         udpservice.startService()
         log.msg("Nameserver listening on port %d" % self.port)
         self.services.append(udpservice)
